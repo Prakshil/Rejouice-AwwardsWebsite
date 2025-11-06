@@ -5,7 +5,7 @@ const locoScroll = new LocomotiveScroll({
   el: document.querySelector("#main"),
   smooth: true,
   multiplier: 0.7,        // ← Increase scroll speed (default: 1)
-  lerp: 0.05,            // ← Lower = smoother but slower (default: 0.1, range: 0.01-0.2)
+  lerp: 0.03,            // ← Lower = smoother but slower (default: 0.1, range: 0.01-0.2)
   smartphone: {
     smooth: true,
     multiplier: 1.2
