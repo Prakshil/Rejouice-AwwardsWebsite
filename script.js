@@ -3,7 +3,17 @@ function locomotiveScrollTrigger() {
 
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector("#main"),
-  smooth: true
+  smooth: true,
+  multiplier: 0.7,        // ← Increase scroll speed (default: 1)
+  lerp: 0.05,            // ← Lower = smoother but slower (default: 0.1, range: 0.01-0.2)
+  smartphone: {
+    smooth: true,
+    multiplier: 1.2
+  },
+  tablet: {
+    smooth: true,
+    multiplier: 1.3
+  }
 });
 
 locoScroll.on("scroll", ScrollTrigger.update);
@@ -31,7 +41,7 @@ function Cursoranimation() {
     const container = document.querySelector(containerSel);
     if (!container) return;
 
-    // accept either class name (.cursor or legacy .crsr)
+
     const candidates = Array.isArray(cursorSelCandidates)
       ? cursorSelCandidates
       : [cursorSelCandidates];
@@ -83,6 +93,8 @@ function page2Animation(){
     });
 }
 page2Animation();
+
+
 
 function sliderAnimation(){
   var swiper = new Swiper(".mySwiper", {
@@ -215,68 +227,3 @@ tl.from("#page1-text span",{
   opacity:0,
   stagger:0.1
 })
-
-/**
- * Split the bottom text of Page 7 into word spans for stagger animations
- * Returns an array of created span elements.
- */
-function splitPage7BtmText(selector = ".page7 .page7-bottom .btm-text h2") {
-  const created = [];
-  document.querySelectorAll(selector).forEach((el) => {
-    if (!el || el.dataset.split === "true") return;
-
-    const text = (el.textContent || "").trim();
-    if (!text) return;
-
-    // Split words and rebuild with span wrappers
-    const words = text.split(/\s+/);
-    el.innerHTML = words
-      .map((w, i) => `<span class="btm-word">${w}${i < words.length - 1 ? "&nbsp;" : ""}</span>`)
-      .join("");
-
-    el.dataset.split = "true";
-    // ensure clipping for vertical motion
-    el.style.overflow = el.style.overflow || "hidden";
-
-    created.push(...el.querySelectorAll(".btm-word"));
-  });
-  return created;
-}
-
-/**
- * Stagger animation for Page 7 bottom text (runs once on scroll into view)
- */
-
-
-// Animate Page 7 top headings and the border line
-(function page7TopAnim(){
-  // Headings slide-up
-  gsap.from('.page7 .page7-top .top-text h3', {
-    y: 60,
-    opacity: 0,
-    duration: 0.6,
-    stagger: 0.08,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.page7',
-      scroller: '#main',
-      start: 'top 85%',
-      once: true,
-      opacity:1,
-    }
-  });
-
-  // Divider grows from 0 to full width
-  gsap.to('.page7 .page7-top-border', {
-    width: '94%',
-    duration: 1.1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.page7 .page7-top-border',
-      scroller: '#main',
-      start: 'top 85%',
-      once: true,
-      opacity:1,
-    }
-  });
-})();
