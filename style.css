@@ -1,0 +1,681 @@
+@font-face {
+    font-family: "nb";
+    src: url("./Fonts/NBInternationalProBoo.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: Rejouice;
+    src: url("./Fonts/Rejouice-Headline.ttf") format("truetype");
+    font-display: swap;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: nb;
+}
+
+html, body {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+}
+body {
+    background-color: #0E0E0E;
+    margin: 0;
+    padding: 0;
+}
+#loader {
+    height:100%;
+    width:100%;
+    position: fixed;
+    top: 0;
+    background: #000;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #fff;
+}
+#loader h3 {
+    font-size: 3vw;
+}
+#main {
+    width: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+}
+
+#page1 {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+}
+
+#page1 video {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.cursor {
+    height: 5vw;
+    width: 5vw;
+    background-color: #ff5f38;
+    border-radius: 50%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    scale: 0;
+    transition: scale 0.3s ease, opacity 0.3s ease;
+    will-change: left, top, transform, opacity;
+}
+
+.cursor h5 {
+    color: #fff;
+    font-size: 0.7vw;
+    font-weight: 500;
+}
+
+.page1-text {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    z-index: 10;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 2vw;
+}
+
+nav h3 {
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+nav h4 {
+    font-size: 1.5vw;
+    font-weight: 100;
+}
+
+.page1-text h1 {
+    font-family: Rejouice;
+    font-size: 27vw;
+    font-weight: 100;
+    line-height: 27vw;
+}
+
+.page1-text h1 span {
+    font-family: Rejouice;
+}
+
+#page2 {
+    min-height: 100vh;
+    width:100%;
+    background: #FAF8F3;
+    color: #0E0E0E;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5vw;
+}
+#page2>#nav {
+    display: flex;
+    padding: 2.8vw;
+    padding-bottom: 1vw;
+    min-height: 21vh;
+    width: 100%;
+    align-items:end;
+    justify-content: space-between;
+    /* border-bottom: 1px solid #91908e; */
+}
+
+#page2>#nav .elem {
+    overflow: hidden;
+}
+
+hr{
+    width: 94.4vw;
+    margin: 0 auto;
+    justify-content: center;
+}
+#page2>#nav>.elem h1 {
+    align-items: baseline;
+    font-family: nb;
+    font-size: 1.67vw;
+    font-weight: 100;
+    will-change: transform, opacity;
+}
+#page2>.heading {
+    padding: 2.8vw;
+}
+#page2>.heading h1{
+    font-size: 4.2vw;
+    font-weight: 500;
+    overflow: hidden;
+    will-change: transform, opacity;
+}
+#space {
+    margin-left: 8vw;
+}
+#page3 {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    padding: 3vw;
+}
+#page3-top {
+    text-align: center;
+}
+
+#page3-top h4 {
+    margin-bottom: 1vw;
+    font-size: 1vw;
+    font-weight: 500
+}
+#page3-top span {
+    font-size: 0.7vw;
+    background-color: #000;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 10px;
+}
+#page3-top h2 {
+    font-size: 4vw;
+    font-weight: 500;
+}
+#page3-elements {
+    height: 75vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 8vw;
+}
+#page3-elements .box {
+    height: 100%;
+    width: 32.5%;
+    position: relative;
+}
+#page3-elements .box video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+#page3-elements .box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    transition: all linear 0.7s;
+}
+#page3-elements>.box:hover img{
+    opacity: 0;
+}
+#page4 {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#page4 svg {
+    position: absolute;
+    height:57%;
+}
+#page4 video {
+   height: 100%;
+}
+.page4-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+}
+.page4-number {
+    font-size: 7vw;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 0.5vw;
+    letter-spacing: -0.05em;
+}
+.page4-subtitle {
+    font-size: 2vw;
+    font-weight: 100;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+/* Make legacy .crsr look like the page1 cursor when used on page4 */
+#page4 .crsr {
+    height: 5vw;
+    width: 5vw;
+    background-color: #ff5f38; /* match page1 */
+    border-radius: 50%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    scale: 0;
+    transition: scale 0.3s ease, opacity 0.3s ease;
+    color: #fff;
+    will-change: left, top, transform, opacity;
+}
+
+.cursor h5 {
+    color: #fff;
+    font-size: 0.7vw; 
+}
+
+#page5 {
+    min-height: 100vh;
+    width: 100%;
+    padding: 4vw 2vw;
+    position: relative;
+    background: #FAF8F3;
+}
+#page5-top {
+    margin-bottom: 4vw;
+}
+#page5-top h1 {
+    color: #000000;
+    font-size: 8vw; 
+    font-weight: 200;
+    border-bottom: 1px solid #000000;
+    width: 96%;
+    margin-left: 2%;
+    padding-bottom: 2vw;
+}
+#page5 #swiperdiv {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: visible;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    overflow: visible !important;
+}
+
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30vw !important;
+}
+
+.swiper-slide img{
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+}
+
+.swiper-wrapper {
+    align-items: center;
+}
+.page7{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #FAF8F3;
+    padding: 6vw 0;
+    position: relative;
+    display: block;
+    visibility: visible;
+    z-index: 1;
+}
+.page7 .page7-top{
+    min-height: 100px;
+    width: 100%;
+    padding: 0.6vw 3vw;
+    margin-top: 2vw;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    visibility: visible;
+}
+.page7 .page7-top h3{
+    font-size: 1.7vw;
+    font-weight: 400;
+    letter-spacing: -.5px;
+    color: #141414;
+    opacity: 1;
+    visibility: visible;
+}
+.page7 .page7-top .top-text{
+    overflow: hidden;
+}
+.page7 .page7-top .top-text div{
+    overflow: hidden;
+}
+.page7 .page7-top-border{
+    height: 1px;
+    width: 0;
+    margin: 0.6vw 3vw;
+    background-color: rgb(71, 71, 71);
+}
+.page7 .page7-bottom{
+    min-height: 415px;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2vw;
+    visibility: visible;
+    margin-bottom: 0; /* Remove bottom margin */
+    padding-bottom: 0; /* Remove bottom padding */
+}
+.page7 .page7-bottom .btm-text{
+    padding: 2vw 3vw;
+    overflow: hidden;
+    visibility: visible;
+}
+.page7 .page7-bottom .btm-text h2{
+    overflow: hidden;
+    visibility: visible;
+}
+.page7 .page7-bottom .btm-text h2 .up {
+    overflow: hidden;
+    display: inline-block;
+    visibility: visible;
+}
+.page7 .page7-bottom .btm-text h2 span{
+    font-size: 4.3vw;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    display: inline-block;
+    color: #141414;
+    opacity: 1;
+    visibility: visible;
+}
+.page7 .btm-word{
+  display: inline-block;
+  will-change: transform, opacity;
+}
+.page8{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #fff;
+    padding: 4vw 0;
+}
+.page8 .text{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0vw 3vw;
+}
+.page8 .text h1{
+    font-size: 8.5vw;
+    font-family: Rejouice, nb, sans-serif;
+    font-weight: 500;
+}
+.page8 .text h3{
+    font-size: 1.8vw;
+    font-weight: lighter;
+    position: relative;
+    cursor: pointer;
+}
+.page8 .text h3::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    background-color: #000;
+    transform-origin: bottom right;
+    transition: transform .35s ease-out;
+}
+.page8 .text h3:hover::after{
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+.page8 .text h3 i{
+    font-size: 1.9vw;
+    margin-right: 10px;
+}
+.page8 .page8-top-border{
+    height: 1px;
+    width: 94%;
+    margin: 2vw 3vw;
+    background-color: rgb(71, 71, 71);
+}
+.page8 .swiper {
+    width: 100%;
+    height: 60vh;
+    margin-top: 3vw;
+    position: relative;
+    overflow: visible;
+    cursor: grab;
+}
+.page8 .swiper:active {
+    cursor: grabbing;
+}
+.page8 .swiper-slide {
+    width: auto !important;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.page8 .swiper-slide img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+.page8 .swiper-slide:hover img {
+    transform: scale(1.05);
+}
+.page9{
+    margin-top: 0;              
+    width: 100vw;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 4vw 0 2vw;         
+}
+.page9 .page9-text{
+    overflow: hidden;
+    height: 200px;
+}
+.page9 .page9-text h4{
+    color: #161616;
+    font-weight: lighter;
+    display: flex;
+    align-items: self-start;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 15px;
+    font-size: 7vh;
+}
+.page9 .page9-text h4 i{
+    color: #161616;
+    margin-top: 2px;
+}
+.page9 .page9-text h1{
+    cursor: pointer;
+    font-size: 2vw;
+    font-weight: lighter;
+    line-height: 1;
+    position: relative;
+}
+.page9 .page9-text h1::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    background-color: #000000;
+    transition: transform .4s ease-out;
+}
+.page9 .page9-text h1:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+footer{
+    height: 100vh;
+    width: 100vw;
+    background-color:#0E0E0E;
+}
+footer .footer-top{
+    height: 65vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-top .first{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15vw;
+    padding: 2.5vw;
+    color: #fff;
+}
+.footer-top .first .first-top h2{
+    font-weight: lighter;
+    letter-spacing: -.5px;
+}
+.footer-top .first .first-top button{
+    padding:  15px 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    font-size: 1.1vw;
+    font-weight: lighter;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+.footer-top .first .first-top button:hover{
+    background-color: #fff;
+    color: #000;
+}
+.footer-top .first .first-btm h4{
+    font-weight: lighter;
+}
+.footer-top .second{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+    margin-top: -2.5vw;
+    padding-right: 3vw;
+    color: #fff;
+}
+.second .second-one{
+    display: flex;
+    flex-direction: column;
+    gap: 15vw;
+}
+.second .second-one .span span{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+}
+.second .second-one .span>span::after,.second .second-one .span1>span::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0%;
+    left: 0%;
+    transform: scaleX(0);
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform .35s ease-out;
+}
+.second .second-one .span>span:hover::after,.second .second-one .span1>span:hover::after{
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+.second .second-two{
+    display: flex;
+    flex-direction: column;
+    gap: 17.5vw;
+}
+.second .second-two .span span{
+    display: flex;
+    position: relative;
+    cursor: pointer;
+}
+.second .second-two .span>span::after,.second .second-two .span1>span::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0%;
+    left: 0%;
+    transform: scaleX(0);
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform .35s ease-out;
+}
+.second .second-two .span>span:hover::after,.second .second-two .span1>span:hover::after{
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+.second .second-two .span1{
+    position: relative;
+    cursor: pointer;
+}
+.second .second-one .span1{
+    position: relative;
+    cursor: pointer;
+}
+footer .footer-bottom{
+    height: 35vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+footer .footer-bottom h1 span{
+    display: inline-block;
+   font-size: 19vw;
+   margin-top: -3.2vw;
+   color: #fff;
+}
